@@ -1,0 +1,35 @@
+{
+  "name": "footballdata-api-v2",
+  "version": "1.0.0",
+  "description": "Football Data API",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "deploy": "npm publish",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NearHuscarl/FootballDataAPI.git"
+  },
+  "files": [
+    "README.md",
+    "LICENSE.md"
+  ],
+  "keywords": [
+    "api",
+    "football"
+  ],
+  "author": "NearHuscarl <near.huscarl@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "dotenv": "^7.0.0",
+    "mocha": "^6.0.2"
+  },
+  "dependencies": {
+    "node-fetch": "^2.3.0"
+  }
+}
