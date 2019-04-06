@@ -18,6 +18,8 @@ const footballData = new FootballData(YOUR_API_KEY);
 
 ## Usages
 
+See [football data quickstart] for more information about filters and data types
+
 ### Get all competitions
 ```js
 footballData.getCompetitions({
@@ -1081,4 +1083,7 @@ $ npm test
 
 ## License
 
-**Mit License**
+**[Mit License]**
+
+[football data quickstart]: https://www.football-data.org/documentation/quickstart
+[MIT License]: ./LICENSE.md
