@@ -1,0 +1,6 @@
+{
+    "checkJs": true,
+    "include": [
+        "./src/**/*"
+    ]
+}

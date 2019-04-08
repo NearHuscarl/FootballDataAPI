@@ -457,7 +457,7 @@ footballData.getScorersFromCompetition({
 ```
 </details>
 
-### Get matches from competitions
+### Get matches
 
 ```js
 footballData.getMatches({
