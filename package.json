@@ -1,6 +1,6 @@
 {
   "name": "footballdata-api-v2",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "description": "Football Data API",
   "main": "dist/index",
   "typings": "dist/index.d.ts",
@@ -16,6 +16,7 @@
     "url": "https://github.com/NearHuscarl/FootballDataAPI.git"
   },
   "files": [
+    "dist",
     "README.md",
     "LICENSE.md"
   ],
