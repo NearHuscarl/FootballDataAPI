@@ -1,8 +1,9 @@
 {
   "name": "footballdata-api-v2",
-  "version": "1.0.1",
+  "version": "2.0.1",
   "description": "Football Data API",
-  "main": "dist/index.js",
+  "main": "dist/index",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "build": "yarn build:types && yarn build:js",
     "build:types": "tsc --emitDeclarationOnly",
@@ -33,7 +34,7 @@
     "@types/node-fetch": "^2.3.2",
     "chai": "^4.2.0",
     "dotenv": "^7.0.0",
-    "mocha": "^6.0.2",
+    "mocha": "^6.1.4",
     "typescript": "^3.4.4"
   },
   "dependencies": {
