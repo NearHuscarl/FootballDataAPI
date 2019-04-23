@@ -23,7 +23,7 @@ See [football data quickstart] for more information about filters and data types
 ### Get all competitions
 ```js
 footballData.getCompetitions({
-    areas: '2088', // Germany
+    areas: 2088, // Germany
     plan: 'TIER_TWO',
 }).then((data) => {
     console.log(JSON.stringify(data, null, 4));
@@ -93,7 +93,7 @@ footballData.getCompetitions({
 
 ```js
 footballData.getCompetition({
-    id: '2021', // Premier League
+    id: 2021, // Premier League
 }).then((data) => {
     console.log(JSON.stringify(data, null, 4));
 })
@@ -152,7 +152,7 @@ footballData.getCompetition({
 
 ```js
 footballData.getTeamsFromCompetition({
-    id: '2021',
+    teamId: 2021,
 }).then((data) => {
     console.log(JSON.stringify(data, null, 4));
 })
@@ -212,7 +212,7 @@ footballData.getTeamsFromCompetition({
 ### Get standings
 ```js
 footballData.getStandingsFromCompetition({
-    id: '2021',
+    competitionId: 2021,
     standingType: 'TOTAL',
 }).then((data) => {
     console.log(JSON.stringify(data, null, 4));
@@ -293,9 +293,9 @@ footballData.getStandingsFromCompetition({
 
 ```js
 footballData.getMatchesFromCompetition({
-    id: '2021',
-    season: '2017',
-    matchday: '12',
+    competitionId: 2021,
+    season: 2017,
+    matchday: 12,
 }).then((data) => {
     console.log(JSON.stringify(data, null, 4));
 })
@@ -398,7 +398,7 @@ footballData.getMatchesFromCompetition({
 
 ```js
 footballData.getScorersFromCompetition({
-    id: '2002',
+    competitionId: 2002,
 }).then((data) => {
     console.log(JSON.stringify(data, null, 4));
 })
@@ -463,7 +463,7 @@ footballData.getScorersFromCompetition({
 footballData.getMatches({
     dateFrom: '2019-04-01',
     dateTo: '2019-04-05',
-    competitions: '2021,2002', // Premier League and Bundesliga
+    competitionIds: [2021, 2002], // Premier League and Bundesliga
 }).then((data) => {
     console.log(JSON.stringify(data, null, 4));
 })
@@ -565,7 +565,7 @@ footballData.getMatches({
 
 ```js
 footballData.getMatch({
-    id: '233325',
+    id: 233325,
 }).then((data) => {
     console.log(JSON.stringify(data, null, 4));
 })
@@ -669,7 +669,7 @@ footballData.getMatch({
 
 ```js
 footballData.getMatchesFromTeam({
-    id: 62, // Everton
+    teamId: 62, // Everton
     status: 'SCHEDULED',
 }).then((data) => {
     console.log(JSON.stringify(data, null, 4));
@@ -954,7 +954,7 @@ footballData.getPlayer({
 
 ```js
 footballData.getMatchesFromPlayer({
-    id: 2019,
+    playerId: 2019,
     dateFrom: '2016-01-01',
     dateTo: '2017-01-01',
     status: 'FINISHED',

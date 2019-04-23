@@ -1,6 +1,0 @@
-{
-    "checkJs": true,
-    "include": [
-        "./src/**/*"
-    ]
-}

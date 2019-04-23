@@ -4,7 +4,9 @@
   "description": "Football Data API",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel src --out-dir dist",
+    "build": "yarn build:types && yarn build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" ",
     "deploy": "npm publish",
     "test": "mocha"
   },
@@ -24,11 +26,15 @@
   "author": "NearHuscarl <near.huscarl@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/node-fetch": "^2.3.2",
     "chai": "^4.2.0",
     "dotenv": "^7.0.0",
-    "mocha": "^6.0.2"
+    "mocha": "^6.0.2",
+    "typescript": "^3.4.4"
   },
   "dependencies": {
     "node-fetch": "^2.3.0"
