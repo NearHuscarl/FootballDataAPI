@@ -9,6 +9,8 @@
 $ npm install footballdata-api-v2
 ```
 
+Get the API key (free) from [football data]
+
 ## Import
 
 ```js
@@ -1085,5 +1087,6 @@ $ npm test
 
 **[Mit License]**
 
+[football data]: https://www.football-data.org/
 [football data quickstart]: https://www.football-data.org/documentation/quickstart
 [MIT License]: ./LICENSE.md
