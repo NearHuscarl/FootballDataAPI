@@ -24,13 +24,11 @@ footballData.getCompetitions({
 // 	console.log(data);
 // });
 
-// 2021 - Premier League
-// 2002 - Bundesliga
-// footballData.getMatchesFromTeam({
-// 	teamId: 2021,
+// footballData.getTeamsFromCompetition({
+//     competitionId: 2021,
 // }).then((data) => {
-// 	console.log(data);
-// });
+//     console.log(JSON.stringify(data, null, 4));
+// })
 
 // footballData.getStandingsFromCompetition({
 // 	competitionId: 2021,

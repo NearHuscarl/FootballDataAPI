@@ -8,3 +8,5 @@ enum Status {
     SUSPENDED = 'SUSPENDED',
     CANCELED = 'CANCELED',
 }
+
+export default Status;

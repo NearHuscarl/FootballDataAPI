@@ -39,7 +39,7 @@ class FootballData {
     _fillUrlParams(url: string, params: { [x: string]: any; }) {
         let wrapped = url.match(/\{(.*?)\}/g);
         if (wrapped) {
-            let unwrapped = (wrapped: string) => wrapped.replace('{', '').replace('}', '');
+            const unwrapped = (wrapped: string) => wrapped.replace('{', '').replace('}', '');
             for (let w in wrapped) {
                 let k = unwrapped(wrapped[w]);
                 url = url.replace(wrapped[w], params[k]);
@@ -71,22 +71,22 @@ class FootballData {
     }
 
     getTeamsFromCompetition(params: Team) {
-        const endpoint = this.baseUrl + 'competitions/{id}/teams/';
+        const endpoint = this.baseUrl + 'competitions/{competitionId}/teams/';
         return this._request(endpoint, params);
     }
 
     getStandingsFromCompetition(params: Standing) {
-        const endpoint = this.baseUrl + 'competitions/{id}/standings/';
+        const endpoint = this.baseUrl + 'competitions/{competitionId}/standings/';
         return this._request(endpoint, params);
     }
 
     getMatchesFromCompetition(params: Match) {
-        const endpoint = this.baseUrl + 'competitions/{id}/matches/';
+        const endpoint = this.baseUrl + 'competitions/{competitionId}/matches/';
         return this._request(endpoint, params);
     }
 
     getScorersFromCompetition(params: Scorers) {
-        const endpoint = this.baseUrl + 'competitions/{id}/scorers/';
+        const endpoint = this.baseUrl + 'competitions/{competitionId}/scorers/';
         return this._request(endpoint, params);
     }
 
@@ -101,7 +101,7 @@ class FootballData {
     }
 
     getMatchesFromTeam(params: MatchFromTeam) {
-        const endpoint = this.baseUrl + 'teams/{id}/matches/';
+        const endpoint = this.baseUrl + 'teams/{teamId}/matches/';
         return this._request(endpoint, params);
     }
 
@@ -126,7 +126,7 @@ class FootballData {
     }
 
     getMatchesFromPlayer(params: MatchFromPlayer) {
-        const endpoint = this.baseUrl + 'players/{id}/matches/';
+        const endpoint = this.baseUrl + 'players/{playerId}/matches/';
         return this._request(endpoint, params);
     }
 }

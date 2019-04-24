@@ -3,3 +3,5 @@ enum StandingType {
     AWAY = 'AWAY',
     TOTAL = 'TOTAL',
 }
+
+export default StandingType;

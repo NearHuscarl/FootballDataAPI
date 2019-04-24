@@ -152,7 +152,7 @@ footballData.getCompetition({
 
 ```js
 footballData.getTeamsFromCompetition({
-    teamId: 2021,
+    competitionId: 2021,
 }).then((data) => {
     console.log(JSON.stringify(data, null, 4));
 })

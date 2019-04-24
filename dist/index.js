@@ -87,25 +87,25 @@ function () {
   }, {
     key: "getTeamsFromCompetition",
     value: function getTeamsFromCompetition(params) {
-      var endpoint = this.baseUrl + 'competitions/{id}/teams/';
+      var endpoint = this.baseUrl + 'competitions/{competitionId}/teams/';
       return this._request(endpoint, params);
     }
   }, {
     key: "getStandingsFromCompetition",
     value: function getStandingsFromCompetition(params) {
-      var endpoint = this.baseUrl + 'competitions/{id}/standings/';
+      var endpoint = this.baseUrl + 'competitions/{competitionId}/standings/';
       return this._request(endpoint, params);
     }
   }, {
     key: "getMatchesFromCompetition",
     value: function getMatchesFromCompetition(params) {
-      var endpoint = this.baseUrl + 'competitions/{id}/matches/';
+      var endpoint = this.baseUrl + 'competitions/{competitionId}/matches/';
       return this._request(endpoint, params);
     }
   }, {
     key: "getScorersFromCompetition",
     value: function getScorersFromCompetition(params) {
-      var endpoint = this.baseUrl + 'competitions/{id}/scorers/';
+      var endpoint = this.baseUrl + 'competitions/{competitionId}/scorers/';
       return this._request(endpoint, params);
     }
   }, {
@@ -123,7 +123,7 @@ function () {
   }, {
     key: "getMatchesFromTeam",
     value: function getMatchesFromTeam(params) {
-      var endpoint = this.baseUrl + 'teams/{id}/matches/';
+      var endpoint = this.baseUrl + 'teams/{teamId}/matches/';
       return this._request(endpoint, params);
     }
   }, {
@@ -153,7 +153,7 @@ function () {
   }, {
     key: "getMatchesFromPlayer",
     value: function getMatchesFromPlayer(params) {
-      var endpoint = this.baseUrl + 'players/{id}/matches/';
+      var endpoint = this.baseUrl + 'players/{playerId}/matches/';
       return this._request(endpoint, params);
     }
   }]);

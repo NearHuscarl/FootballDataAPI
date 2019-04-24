@@ -4,3 +4,5 @@ enum Plan {
     TIER_THREE = 'TIER_THREE',
     TIER_FOUR = 'TIER_FOUR',
 }
+
+export default Plan;
