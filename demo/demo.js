@@ -14,7 +14,7 @@ const footballData = new FootballData(process.env.YOUR_API_KEY);
 footballData.getCompetitions({
 	areas: 2088,
 	plan: 'TIER_TWO',
-}).then((data) => {
+}, true).then((data) => {
 	console.log(data);
 });
 

@@ -22,6 +22,37 @@ const footballData = new FootballData(YOUR_API_KEY);
 
 See [football data quickstart] for more information about filters and data types
 
+### Get header data
+
+You can attach additional data from the API header response by adding `true` in the second argument in every methods below to get some meta info like remaining requests until blocked
+
+The free plan allows 10 API calls/minute
+
+```js
+footballData.getCompetitions({
+    areas: 2088, // Germany
+    plan: 'TIER_TWO',
+}, true).then((data) => {
+    console.log(JSON.stringify(data, null, 4));
+})
+```
+
+<details>
+  <summary>Result</summary>
+
+```json
+{
+    ...
+    "api": {
+        "version": "v2",
+        "client": "NearHuscarl",
+        "secLeftUntilReset": 60,
+        "remainingRequests": 9
+    }
+}
+```
+</details>
+
 ### Get all competitions
 ```js
 footballData.getCompetitions({

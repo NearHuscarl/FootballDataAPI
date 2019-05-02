@@ -4,7 +4,8 @@
         "sourceMap": true,
         "strict": true,
         "declaration": true,
-        "target": "es5"
+        "target": "es5",
+        "allowSyntheticDefaultImports": true,
     },
     "include": [
         "./src/"

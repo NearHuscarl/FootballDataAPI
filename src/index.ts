@@ -23,8 +23,9 @@ class FootballData {
         this.baseUrl = 'https://api.football-data.org/v2/';
     }
 
-    _request(endpoint: string, params: object = {}) {
+    _request(endpoint: string, params: object = {}, headerData: boolean) {
         const url = this._fillUrlParams(endpoint, params);
+        let api: object;
 
         return fetch(url, {
             headers: {
@@ -32,7 +33,19 @@ class FootballData {
             },
         })
         .then((data: Response | any) => {
+            if (headerData) {
+                api = {
+                    version: data.headers.get('X-API-Version'),
+                    client: data.headers.get('X-Authenticated-Client'),
+                    secLeftUntilReset: Number(data.headers.get('X-RequestCounter-Reset')),
+                    remainingRequests: Number(data.headers.get('X-Requests-Available-Minute')),
+                };
+            }
             return data.json();
+        })
+        .then((result) => {
+            if (headerData) result.api = api;
+            return result;
         });
     }
 
@@ -60,74 +73,74 @@ class FootballData {
         return url + urlParams;
     }
     
-    getCompetitions(params: Competitions) {
+    getCompetitions(params: Competitions, headerData = false) {
         const endpoint = this.baseUrl + 'competitions/';
-        return this._request(endpoint, params);
+        return this._request(endpoint, params, headerData);
     }
 
-    getCompetition(params: IID) {
+    getCompetition(params: IID, headerData = false) {
         const endpoint = this.baseUrl + 'competitions/{id}/';
-        return this._request(endpoint, params);
+        return this._request(endpoint, params, headerData);
     }
 
-    getTeamsFromCompetition(params: Team) {
+    getTeamsFromCompetition(params: Team, headerData = false) {
         const endpoint = this.baseUrl + 'competitions/{competitionId}/teams/';
-        return this._request(endpoint, params);
+        return this._request(endpoint, params, headerData);
     }
 
-    getStandingsFromCompetition(params: Standing) {
+    getStandingsFromCompetition(params: Standing, headerData = false) {
         const endpoint = this.baseUrl + 'competitions/{competitionId}/standings/';
-        return this._request(endpoint, params);
+        return this._request(endpoint, params, headerData);
     }
 
-    getMatchesFromCompetition(params: Match) {
+    getMatchesFromCompetition(params: Match, headerData = false) {
         const endpoint = this.baseUrl + 'competitions/{competitionId}/matches/';
-        return this._request(endpoint, params);
+        return this._request(endpoint, params, headerData);
     }
 
-    getScorersFromCompetition(params: Scorers) {
+    getScorersFromCompetition(params: Scorers, headerData = false) {
         const endpoint = this.baseUrl + 'competitions/{competitionId}/scorers/';
-        return this._request(endpoint, params);
+        return this._request(endpoint, params, headerData);
     }
 
-    getMatches(params: Matches) {
+    getMatches(params: Matches, headerData = false) {
         const endpoint = this.baseUrl + 'matches/';
-        return this._request(endpoint, params);
+        return this._request(endpoint, params, headerData);
     }
 
-    getMatch(params: IID) {
+    getMatch(params: IID, headerData = false) {
         const endpoint = this.baseUrl + 'matches/{id}/';
-        return this._request(endpoint, params);
+        return this._request(endpoint, params, headerData);
     }
 
-    getMatchesFromTeam(params: MatchFromTeam) {
+    getMatchesFromTeam(params: MatchFromTeam, headerData = false) {
         const endpoint = this.baseUrl + 'teams/{teamId}/matches/';
-        return this._request(endpoint, params);
+        return this._request(endpoint, params, headerData);
     }
 
-    getTeam(params: IID) {
+    getTeam(params: IID, headerData = false) {
         const endpoint = this.baseUrl + 'teams/{id}/';
-        return this._request(endpoint, params);
+        return this._request(endpoint, params, headerData);
     }
 
-    getAreas() {
+    getAreas(headerData = false) {
         const endpoint = this.baseUrl + 'areas/';
-        return this._request(endpoint);
+        return this._request(endpoint, {}, headerData);
     }
     
-    getArea(params: IID) {
+    getArea(params: IID, headerData = false) {
         const endpoint = this.baseUrl + 'areas/{id}/';
-        return this._request(endpoint, params);
+        return this._request(endpoint, params, headerData);
     }
 
-    getPlayer(params: IID) {
+    getPlayer(params: IID, headerData = false) {
         const endpoint = this.baseUrl + 'players/{id}/';
-        return this._request(endpoint, params);
+        return this._request(endpoint, params, headerData);
     }
 
-    getMatchesFromPlayer(params: MatchFromPlayer) {
+    getMatchesFromPlayer(params: MatchFromPlayer, headerData = false) {
         const endpoint = this.baseUrl + 'players/{playerId}/matches/';
-        return this._request(endpoint, params);
+        return this._request(endpoint, params, headerData);
     }
 }
 

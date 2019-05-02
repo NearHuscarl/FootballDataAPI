@@ -2,23 +2,23 @@ import { Competitions, IID, Match, MatchFromPlayer, MatchFromTeam, Matches, Scor
 declare class FootballData {
     baseUrl: string;
     constructor(apiKey: string);
-    _request(endpoint: string, params?: object): Promise<any>;
+    _request(endpoint: string, params: object | undefined, headerData: boolean): Promise<any>;
     _fillUrlParams(url: string, params: {
         [x: string]: any;
     }): string;
-    getCompetitions(params: Competitions): Promise<any>;
-    getCompetition(params: IID): Promise<any>;
-    getTeamsFromCompetition(params: Team): Promise<any>;
-    getStandingsFromCompetition(params: Standing): Promise<any>;
-    getMatchesFromCompetition(params: Match): Promise<any>;
-    getScorersFromCompetition(params: Scorers): Promise<any>;
-    getMatches(params: Matches): Promise<any>;
-    getMatch(params: IID): Promise<any>;
-    getMatchesFromTeam(params: MatchFromTeam): Promise<any>;
-    getTeam(params: IID): Promise<any>;
-    getAreas(): Promise<any>;
-    getArea(params: IID): Promise<any>;
-    getPlayer(params: IID): Promise<any>;
-    getMatchesFromPlayer(params: MatchFromPlayer): Promise<any>;
+    getCompetitions(params: Competitions, headerData?: boolean): Promise<any>;
+    getCompetition(params: IID, headerData?: boolean): Promise<any>;
+    getTeamsFromCompetition(params: Team, headerData?: boolean): Promise<any>;
+    getStandingsFromCompetition(params: Standing, headerData?: boolean): Promise<any>;
+    getMatchesFromCompetition(params: Match, headerData?: boolean): Promise<any>;
+    getScorersFromCompetition(params: Scorers, headerData?: boolean): Promise<any>;
+    getMatches(params: Matches, headerData?: boolean): Promise<any>;
+    getMatch(params: IID, headerData?: boolean): Promise<any>;
+    getMatchesFromTeam(params: MatchFromTeam, headerData?: boolean): Promise<any>;
+    getTeam(params: IID, headerData?: boolean): Promise<any>;
+    getAreas(headerData?: boolean): Promise<any>;
+    getArea(params: IID, headerData?: boolean): Promise<any>;
+    getPlayer(params: IID, headerData?: boolean): Promise<any>;
+    getMatchesFromPlayer(params: MatchFromPlayer, headerData?: boolean): Promise<any>;
 }
 export default FootballData;
