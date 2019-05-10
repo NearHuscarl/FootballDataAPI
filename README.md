@@ -3,6 +3,8 @@
 ![npm (scoped)](https://img.shields.io/npm/v/footballdata-api-v2.svg)
 ![NPM](https://img.shields.io/npm/l/footballdata-api-v2.svg)
 
+[![npm badge][npm-badge-png]][package-url]
+
 ## Installation
 
 ```bash
@@ -1118,6 +1120,8 @@ $ npm test
 
 **[Mit License]**
 
+[package-url]: https://www.npmjs.com/package/footballdata-api-v2
 [football data]: https://www.football-data.org/
 [football data quickstart]: https://www.football-data.org/documentation/quickstart
 [MIT License]: ./LICENSE.md
+[npm-badge-png]: https://nodei.co/npm/footballdata-api-v2.png?downloads=true&stars=true
