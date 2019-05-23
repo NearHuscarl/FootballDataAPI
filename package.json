@@ -1,6 +1,6 @@
 {
   "name": "footballdata-api-v2",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Football Data API",
   "main": "dist/index",
   "typings": "dist/index.d.ts",
