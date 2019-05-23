@@ -1,5 +1,6 @@
 import Plan from './plan';
 import StandingType from './standingType';
+import Stage from './stage';
 import Status from './status';
 import Venue from './venue';
 
@@ -47,11 +48,11 @@ interface ISeason {
     season?: number;
 }
 
-interface IStage {
+export interface IStage {
     /**
      * Check the season node for available stages of a particular competition/season.
      */
-    stage?: string;
+    stage?: Stage;
 }
 
 interface IStatus {
@@ -70,15 +71,15 @@ interface IVenue {
     venue?: Venue;
 }
 
-export interface Competitions extends IPlan {
+export interface CompetitionsParams extends IPlan {
     areas?: string | number | Array<number>;
 }
 
-export interface Team extends ISeason, IStage  {
+export interface TeamParams extends ISeason, IStage  {
     competitionId: number;
 }
 
-export interface Standing {
+export interface StandingParams {
     competitionId: number;
     /**
      * "HOME" | "AWAY" | "TOTAL"
@@ -86,7 +87,7 @@ export interface Standing {
     standingType?: StandingType;
 }
 
-export interface Match extends IDate, ISeason, IStage, IStatus {
+export interface MatchParams extends IDate, ISeason, IStage, IStatus {
     competitionId: number;
     matchday?: number;
     /**
@@ -95,19 +96,19 @@ export interface Match extends IDate, ISeason, IStage, IStatus {
     group?: string;
 }
 
-export interface Scorers extends ILimit {
+export interface ScorerParams extends ILimit {
     competitionId: number;
 }
 
-export interface Matches extends IStatus, IDate {
-    competitionIds: string | number | Array<number>;
+export interface MatchesParams extends IStatus, IDate {
+    competitions: string | number | Array<number>;
 }
 
-export interface MatchFromTeam extends IDate, ILimit, IStatus, IVenue {
+export interface MatchFromTeamParams extends IDate, ILimit, IStatus, IVenue {
     teamId: number;
 }
 
-export interface MatchFromPlayer extends IDate, ILimit, IStatus {
+export interface MatchFromPlayerParams extends IDate, ILimit, IStatus {
     playerId: number;
-    competitionIds?: string | number | Array<number>;
+    competitions?: string | number | Array<number>;
 }

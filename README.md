@@ -498,7 +498,7 @@ footballData.getScorersFromCompetition({
 footballData.getMatches({
     dateFrom: '2019-04-01',
     dateTo: '2019-04-05',
-    competitionIds: [2021, 2002], // Premier League and Bundesliga
+    competitions: [2021, 2002], // Premier League and Bundesliga
 }).then((data) => {
     console.log(JSON.stringify(data, null, 4));
 })
