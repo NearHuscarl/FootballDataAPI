@@ -1,17 +1,21 @@
 {
   "name": "footballdata-api-v2",
-  "version": "2.3.0",
+  "version": "0.0.0-development",
   "description": "Football Data API",
   "main": "dist/index",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "prebuild": "rimraf dist",
     "build": "yarn build:types && yarn build:js",
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" ",
-    "demo": "node demo/demo.js",
-    "debug": "yarn build:js && yarn demo",
-    "deploy": "npm publish",
-    "test": "mocha"
+    "commit": "git-cz",
+    "demo": "ts-node demo/demo.ts",
+    "deploy": "yarn publish",
+    "test": "mocha -r ts-node/register test/**/*.test.{ts,tsx}",
+    "cover": "nyc mocha -r ts-node/register test/**/*.test.{ts,tsx}",
+    "check-coverage": "nyc check-coverage --statements 70 --branches 60 --functions 30 --lines 70",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -34,13 +38,27 @@
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-typescript": "^7.3.3",
+    "@types/chai": "^4.1.7",
+    "@types/dotenv": "^6.1.1",
+    "@types/mocha": "^5.2.6",
     "@types/node-fetch": "^2.3.2",
     "chai": "^4.2.0",
+    "commitizen": "^3.1.1",
+    "cz-conventional-changelog": "2.1.0",
     "dotenv": "^7.0.0",
     "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "rimraf": "^2.6.3",
+    "semantic-release": "^15.13.12",
+    "ts-node": "^8.1.0",
     "typescript": "^3.4.4"
   },
   "dependencies": {
     "node-fetch": "^2.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

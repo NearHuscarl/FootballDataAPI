@@ -5,7 +5,7 @@
         "strict": true,
         "declaration": true,
         "target": "es5",
-        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true, // allow you to write (import fs from "fs") instead of (import * as fs from "fs")
     },
     "include": [
         "./src/"

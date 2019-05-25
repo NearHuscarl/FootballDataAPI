@@ -1,14 +1,10 @@
 'use strict';
 
-require('dotenv').config();
-if (!process.env.YOUR_API_KEY) {
-    throw new Error('No API Key specified. Please create an environment variable named YOUR_API_KEY by following guide in README.md');
-}
+import { expect } from 'chai';
+import FootballData from '../src/index';
 
-const expect = require('chai').expect;
-const FootballData = require('../dist/index').default;
-
-const footballData = new FootballData(process.env.YOUR_API_KEY);
+const apiKey = 'api key';
+const footballData = new FootballData(apiKey);
 
 describe('footballData._fillUrlParams', function() {
     it('Replace {id} with actual ID value', function() {

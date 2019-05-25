@@ -1,0 +1,23 @@
+sudo: false
+language: node_js
+cache:
+  directories:
+    - node_modules
+branches:
+  only:
+    - master
+notifications:
+  email: false
+node_js:
+  - '10'
+before_install:
+  - npm i -g yarn@^1.13.0
+before_script:
+  - yarn prune
+script:
+  - yarn run build
+  - yarn run cover
+  # - yarn run check-coverage
+after_success:
+  # - yarn run report-coverage
+  - yarn run semantic-release
