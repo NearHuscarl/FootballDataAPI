@@ -1,7 +1,10 @@
 # Football Data API
 
 ![npm (scoped)](https://img.shields.io/npm/v/footballdata-api-v2.svg)
-![NPM](https://img.shields.io/npm/l/footballdata-api-v2.svg)
+[![Build Status](https://api.travis-ci.com/NearHuscarl/FootballDataAPI.svg?branch=master)](https://travis-ci.com/NearHuscarl/FootballDataAPI)
+[![Code Coverage](https://img.shields.io/codecov/c/github/NearHuscarl/FootballDataAPI.svg?maxAge=2592000)](https://codecov.io/github/NearHuscarl/FootballDataAPI?branch=master)
+![license](https://img.shields.io/npm/l/footballdata-api-v2.svg?color=blue)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 [![npm badge][npm-badge-png]][package-url]
 
