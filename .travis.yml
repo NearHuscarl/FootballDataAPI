@@ -16,7 +16,7 @@ before_install:
 script:
   - yarn run build
   - yarn run cover
-  # - yarn run check-coverage
+  - yarn run check-coverage
 after_success:
   # - yarn run report-coverage
   - yarn run semantic-release

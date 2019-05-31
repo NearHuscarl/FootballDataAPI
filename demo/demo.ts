@@ -1,6 +1,7 @@
 import fs from 'fs';
 import dotenv from 'dotenv';
-import FootballData from '../dist/index';
+import FootballData from '../src/index';
+import StandingType from '../src/standingType';
 
 dotenv.config();
 
@@ -12,18 +13,17 @@ const footballData = new FootballData(process.env.YOUR_API_KEY);
 
 // 2072 - England
 // 2088 - Germany
-// footballData.getCompetitions({
-// 	areas: 2072
-// }, true).then((data) => {
-// 	console.log(JSON.stringify(data, null, 4));
-// });
-
-footballData.getCompetition({
-	id: 2021,
-}).then((data) => {
-	fs.writeFileSync('results.json', JSON.stringify(data, null, 4))
-	console.log(data);
+footballData.getCompetitions({
+	areas: [2072, 2088]
+}, true).then((data) => {
+	console.log(JSON.stringify(data, null, 4));
 });
+
+// footballData.getCompetition({
+// 	id: 2021,
+// }).then((data) => {
+// 	console.log(data);
+// });
 
 // footballData.getTeamsFromCompetition({
 // 	competitionId: 2013,
@@ -34,8 +34,8 @@ footballData.getCompetition({
 
 // footballData.getStandingsFromCompetition({
 // 	competitionId: 2001,
-// 	standingType: 'TOTAL',
-// }).then((data) => {
+// 	standingType: StandingType.TOTAL,
+// }, true).then((data) => {
 // 	console.log(data);
 // });
 

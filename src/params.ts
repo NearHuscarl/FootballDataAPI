@@ -101,7 +101,7 @@ export interface ScorerParams extends ILimit {
 }
 
 export interface MatchesParams extends IStatus, IDate {
-    competitions: string | number | Array<number>;
+    competitions?: string | number | Array<number>;
 }
 
 export interface MatchFromTeamParams extends IDate, ILimit, IStatus, IVenue {
