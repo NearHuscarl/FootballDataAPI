@@ -12,11 +12,12 @@ notifications:
 node_js:
   - '10'
 before_install:
-  - npm i -g yarn@^1.13.0
+  - npm install -g codecov
+  - npm install -g yarn@^1.13.0
 script:
   - yarn run build
   - yarn run cover
   - yarn run check-coverage
 after_success:
-  # - yarn run report-coverage
+  - codecov
   - yarn run semantic-release
