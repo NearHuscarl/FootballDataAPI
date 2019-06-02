@@ -31,6 +31,30 @@ import {
 
 let API_KEY = '';
 
+// Do not use querystring from NodeJs since it will
+// convert { a: 1, b: [2, 3, 4] } to '?a=1&b=2&b=3&b=4'
+// but we want the result to be '?a=1&b=2,3,4'
+const toQueryString = (params: { [x: string]: any }) => {
+    const keys = Object.keys(params);
+
+    if (keys.length === 0) {
+        return '';
+    }
+
+    let queryString = '?';
+
+    keys.forEach((key, index) => {
+        const value = params[key].toString();
+        if (index === keys.length - 1) {
+            queryString += `${key}=${value}`;
+        } else {
+            queryString += `${key}=${value}&`;
+        }
+    });
+
+    return queryString;
+}
+
 class FootballData {
     baseUrl: string;
 
@@ -39,9 +63,8 @@ class FootballData {
         this.baseUrl = 'https://api.football-data.org/v2/';
     }
 
-    _request(endpoint: string, params: object = {}, headerData: boolean) {
+    _request(endpoint: string, params: object, headerData: boolean) {
         const url = this._fillUrlParams(endpoint, params);
-        let api: object;
 
         return fetch(url, {
             headers: {
@@ -49,19 +72,21 @@ class FootballData {
             },
         })
         .then((data: Response | any) => {
+            return Promise.all([data, data.json()]);
+        })
+        .then((result) => {
+            const [data, json] = result;
+
             if (headerData) {
-                api = {
+                json.api = {
                     version: data.headers.get('X-API-Version'),
                     client: data.headers.get('X-Authenticated-Client'),
                     secLeftUntilReset: Number(data.headers.get('X-RequestCounter-Reset')),
                     remainingRequests: Number(data.headers.get('X-Requests-Available-Minute')),
                 };
             }
-            return data.json();
-        })
-        .then((result) => {
-            if (headerData) result.api = api;
-            return result;
+
+            return json;
         });
     }
 
@@ -76,17 +101,8 @@ class FootballData {
             }
         }
 
-        let urlParams = '';
-        if (params && Object.keys(params).length > 0) {
-            urlParams = '?';
-            
-            Object.keys(params).forEach((key) => {
-                urlParams += `${key}=${params[key]}&`;
-            })
-        }
-        urlParams = urlParams.slice(0, -1); // remove trailing '&'
-
-        return url + urlParams;
+        const query = toQueryString(params);
+        return query ? `${url}${query}` : url;
     }
     
     getCompetitions(params: CompetitionsParams, headerData = false): Promise<CompetitionsResult> {

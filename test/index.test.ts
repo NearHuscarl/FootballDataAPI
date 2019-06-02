@@ -53,7 +53,7 @@ function mockResponse(body: any = {}) {
 };
 
 describe('FootballData', function () {
-    
+
     let sandbox: sinon.SinonSandbox;
     let FootballData: any;
     let footballData: FootballData;
@@ -68,9 +68,9 @@ describe('FootballData', function () {
         }).default;
 
         footballData = new FootballData(API_KEY);
-	});
+    });
 
-	beforeEach('setup sandbox', async function () {
+    beforeEach('setup sandbox', function () {
         sandbox = sinon.createSandbox();
     });
 
@@ -147,7 +147,7 @@ describe('FootballData', function () {
             })).to.eventually.be.eql(mockResult);
         });
     });
-    
+
     describe('footballData.getMatchesFromCompetition', function () {
         it('Should get matches from competition', function () {
             fetchStub
@@ -210,13 +210,13 @@ describe('FootballData', function () {
             })).to.eventually.be.eql(mockResult);
         });
     });
-    
+
     describe('footballData.getMatch', function () {
         it('Should get specific match', function () {
             fetchStub
                 .withArgs('https://api.football-data.org/v2/matches/233325/')
                 .resolves(mockResponse(mockResult))
-                
+
             expect(footballData.getMatch({ id: 233325 }, true))
                 .to.eventually.be.eql(mockResultWithHeader);
             expect(footballData.getMatch({ id: 233325 }))
@@ -256,7 +256,7 @@ describe('FootballData', function () {
             expect(footballData.getTeam({ id: 86 }, true)).to.eventually.be.eql(mockResultWithHeader);
         });
     });
-    
+
     describe('footballData.getAreas', function () {
         it('Should get all areas', function () {
             fetchStub
@@ -267,7 +267,7 @@ describe('FootballData', function () {
             expect(footballData.getAreas(true)).to.eventually.be.eql(mockResultWithHeader);
         });
     });
-    
+
     describe('footballData.getArea', function () {
         it('Should get specific area', function () {
             fetchStub
@@ -278,7 +278,7 @@ describe('FootballData', function () {
             expect(footballData.getArea({ id: 2072 }, true)).to.eventually.be.eql(mockResultWithHeader);
         });
     });
-    
+
     describe('footballData.getPlayer', function () {
         it('Should get specific player', function () {
             fetchStub
@@ -289,7 +289,7 @@ describe('FootballData', function () {
             expect(footballData.getPlayer({ id: 2019 }, true)).to.eventually.be.eql(mockResultWithHeader);
         });
     });
-     
+
     describe('footballData.getMatchesFromPlayer', function () {
         it('Should get matches from player', function () {
             fetchStub
