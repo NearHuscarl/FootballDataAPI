@@ -34,9 +34,9 @@
   "author": "NearHuscarl <near.huscarl@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "@babel/preset-typescript": "^7.3.3",
     "@types/chai": "^4.1.7",
     "@types/chai-as-promised": "^7.1.0",
